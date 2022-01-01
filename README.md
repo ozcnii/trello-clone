@@ -1,6 +1,6 @@
 # trello-clone
 
-stack : Next.js, Redux Toolkit, Tailwind CSS;
+stack : TypeScript, Next.js, Redux Toolkit, Tailwind CSS;
 
 Run the development server:
 
