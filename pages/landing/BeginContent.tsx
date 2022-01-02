@@ -1,7 +1,8 @@
 import { FC } from 'react';
-
+import boardImage from './../../public/images/board.png';
 import Image from 'next/image';
 import { Button } from '../../components/Button';
+import Link from 'next/link';
 
 const BeginContent: FC = () => {
   return (
@@ -11,13 +12,15 @@ const BeginContent: FC = () => {
         <span className='text-center my-5 text-xl'>Начните с досок, колонок и карточек, а затем переходите к более сложным функциям. Управляйте проектами, упорядочивайте задачи и поддерживайте командный дух — все это в Trello.</span>
 
         <div className="flex justify-center">
-          <Button className="w-60" outline={true}>
-            Начать работу →
-          </Button>
+          <Link href={'/board'}>
+            <a><Button className="w-60" outline={true}>
+              Начать работу →
+            </Button></a>
+          </Link>
         </div>
 
-        <div style={{ width: '100%', height: '600px', position: 'relative' }} className='mt-10 flex justify-center'>
-          <Image objectFit="contain" layout="fill" src="/images/board.png" alt='board-image' />
+        <div style={{ width: '100%', height: '700px' }} className='relative mt-10 flex justify-center'>
+          <Image placeholder="blur" objectFit="contain" layout="fill" src={boardImage} alt='board-image' />
         </div>
       </div>
     </>

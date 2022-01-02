@@ -1,33 +1,32 @@
 import { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { IPanelProps, panels } from "../MenuPopout";
-import { BoardSlice } from "../Slices/BoardSlice";
+import { IPanelProps, panels } from "../MenuPopover";
 import { LittleButton } from './../../../components/LittleButton'
+import { MdKeyboardArrowLeft, MdClose } from 'react-icons/md'
+import { SetBackgroundButton } from "../../../components/SetBackgroundButton";
 
-const SetBackgroundPanel: FC<IPanelProps> = ({ setPopout, setActivePanel }) => {
-  const { setBackground } = BoardSlice.actions
-  const dispatch = useAppDispatch()
-
+const SetBackgroundPanel: FC<IPanelProps> = ({ setPopover, setActivePanel }) => {
   return (
     <>
-      <div className="flex justify-between mb-3">
-        <LittleButton color="green" handler={() => setActivePanel(panels.default)} >{"<-"}</LittleButton>
-        <span>Menu</span>
-        <LittleButton color="red" handler={() => setPopout(false)}>X</LittleButton>
+      <div className="flex justify-between mb-3 items-center">
+
+        <LittleButton style={{ height: "40px", width: "40px", padding: "5px" }} color="transparent" handler={() => setActivePanel(panels.default)} >
+          <MdKeyboardArrowLeft size={40} />
+        </LittleButton>
+
+        <span>Выберите фон</span>
+
+        <LittleButton style={{ height: "40px", width: "40px" }} color="transparent" handler={() => setPopover(false)}>
+          <MdClose size={40} />
+        </LittleButton>
       </div>
 
       <div className="flex flex-wrap">
-
-        <div onClick={() => dispatch(setBackground({ isImage: false, background: "green-500" }))}
-          style={{ height: "110px", width: "110px" }}
-          className="ease-out duration-200 cursor-pointer rounded-md flex items-center justify-center bg-green-500 m-3 hover:contrast-125"
-        >Green</div>
-
-        <div onClick={() => dispatch(setBackground({ isImage: false, background: "red-500" }))}
-          style={{ height: "110px", width: "110px" }}
-          className="ease-out duration-200 cursor-pointer rounded-md flex items-center justify-center bg-red-500 m-3 hover:contrast-125"
-        >Red</div>
-
+        <SetBackgroundButton type="color" background="bg-green-500" >Зеленый</SetBackgroundButton>
+        <SetBackgroundButton type="color" background="bg-red-500" >Красный</SetBackgroundButton>
+        <SetBackgroundButton type="color" background="bg-gray-200" >Серый</SetBackgroundButton>
+        <SetBackgroundButton type="gradient" background="AGB_1">Анимированный градиент</SetBackgroundButton>
+        <SetBackgroundButton type="gradient" background="AGB_2">Анимированный градиент</SetBackgroundButton>
+        <SetBackgroundButton type="gradient" background="AGB_3">Анимированный градиент</SetBackgroundButton>
       </div>
     </>
   )

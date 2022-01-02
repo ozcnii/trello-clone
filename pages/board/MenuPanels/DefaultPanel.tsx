@@ -1,20 +1,23 @@
 import { FC } from "react";
 import { LittleButton } from "../../../components/LittleButton";
-import { IPanelProps, panels } from '../MenuPopout'
+import { IPanelProps, panels } from '../MenuPopover'
+import { MdClose } from 'react-icons/md';
+import { Button } from "../../../components/Button";
 
-const DefaultPanel: FC<IPanelProps> = ({ setPopout, setActivePanel }) => {
+const DefaultPanel: FC<IPanelProps> = ({ setPopover, setActivePanel }) => {
   return (
     <>
-      <div className="flex justify-between mb-3">
-        <span>Menu</span>
-        <LittleButton color="red" handler={() => setPopout(false)} >X</LittleButton>
+      <div className="flex justify-between mb-3 items-center">
+        <span>Меню</span>
+        <LittleButton style={{ height: "40px", width: "40px" }} color="transparent" handler={() => setPopover(false)}>
+          <MdClose size={40} />
+        </LittleButton>
       </div>
 
-      <div>
-        <ul>
-          <li onClick={() => setActivePanel(panels.editBackground)}
-            className="mb-3 bg-gray-500 px-3 py-2 rounded-md cursor-pointer ease-out duration-200 hover:bg-gray-600">Сменить фон</li>
-        </ul>
+      <div style={{width: "250px"}} onClick={() => setActivePanel(panels.editBackground)}>
+        <Button className="mb-3 px-3 py-2 rounded-md cursor-pointer ease-in duration-200 w-full text-base " >
+          Сменить фон
+        </Button>
       </div>
     </>
   )

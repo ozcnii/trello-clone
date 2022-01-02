@@ -10,16 +10,28 @@ export interface IColumn {
 }
 
 export interface IBackground {
-  isImage: boolean,
+  type: "img" | "gradient" | "color",
   background: string
 }
 
 export interface BoardState {
   background: IBackground,
-  columns: IColumn[]
+  columns: IColumn[],
 }
 
 export interface ICreateCard {
   columnId: string,
   value: string,
+}
+
+export interface ISortCards {
+  droppableIdStart: string,
+  droppableIdEnd: string,
+  droppableIndexStart: number,
+  droppableIndexEnd: number,
+}
+
+export interface ICardRemove {
+  columnId: string,
+  cardId: string
 }

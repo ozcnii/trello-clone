@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from "react";
 import { useAppDispatch } from "../../../store/hooks";
 import { BoardSlice } from "../Slices/BoardSlice";
-
+import { MdClose } from 'react-icons/md';
 
 const ColumnCreate: FC = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -39,7 +39,7 @@ const ColumnCreate: FC = () => {
             <button
               onClick={() => setIsEdit(false)}
               className="font-bold text-gray-700 hover:text-stone-900 ease-in duration-200 cursor-pointer rounded-md px-3 pr-3 py-1">
-              x
+              <MdClose style={{fontSize: "1.25rem" }} />
             </button>
           </div>
 
