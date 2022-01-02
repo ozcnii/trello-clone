@@ -1,6 +1,6 @@
 # trello-clone
 
-stack : TypeScript, Next.js, Redux Toolkit, Tailwind CSS;
+stack : TypeScript, Next.js, Redux Toolkit, Tailwind CSS, React Beautiful Dnd, React-Icons;
 
 Run the development server:
 
