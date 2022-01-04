@@ -4,7 +4,7 @@ import { IColumn } from "../../../models/board.models";
 import { CardCreate } from "../Cards/CardCreate";
 import { Droppable } from 'react-beautiful-dnd';
 import { useAppDispatch } from "../../../store/hooks";
-import { BoardSlice } from "../Slices/BoardSlice";
+import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { ColumnPopover } from "./ColumnPopover";
 
 interface IProps {

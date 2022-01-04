@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 import { useAppDispatch } from "../../../store/hooks";
-import { BoardSlice } from "../Slices/BoardSlice";
+import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { MdClose } from 'react-icons/md';
 
 interface IProps {
@@ -49,7 +49,7 @@ const CardCreate: FC<IProps> = ({ isEdit, setIsEdit, columnId}) => {
         : (<div>
           <button
             onClick={() => setIsEdit(true)}
-            className="ease-in duration-200 cursor-pointer rounded-md hover:bg-gray-400 p-2 px-3">
+            className="w-full text-left ease-in duration-200 cursor-pointer rounded-md hover:bg-gray-400 p-2 px-3">
             + Добавить карточку
           </button>
         </div>)

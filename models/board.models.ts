@@ -14,9 +14,16 @@ export interface IBackground {
   background: string
 }
 
-export interface BoardState {
+export interface IBoardState {
+  boards: IBoard[],
+  currentBoardId: string,
+}
+
+export interface IBoard {
+  id: string,
   background: IBackground,
   columns: IColumn[],
+  name: string
 }
 
 export interface ICreateCard {

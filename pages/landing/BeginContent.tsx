@@ -12,7 +12,7 @@ const BeginContent: FC = () => {
         <span className='text-center my-5 text-xl'>Начните с досок, колонок и карточек, а затем переходите к более сложным функциям. Управляйте проектами, упорядочивайте задачи и поддерживайте командный дух — все это в Trello.</span>
 
         <div className="flex justify-center">
-          <Link href={'/board'}>
+          <Link href={'/boards'}>
             <a><Button className="w-60" outline={true}>
               Начать работу →
             </Button></a>
@@ -22,6 +22,7 @@ const BeginContent: FC = () => {
         <div style={{ width: '100%', height: '700px' }} className='relative mt-10 flex justify-center'>
           <Image placeholder="blur" objectFit="contain" layout="fill" src={boardImage} alt='board-image' />
         </div>
+        
       </div>
     </>
   )

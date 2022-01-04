@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 import Link from 'next/link';
-import { MenuPopover } from './Menu/MenuPopover';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { BoardsPopover } from './Boards/BoardsPopover';
-import { AccountPopover } from './Account/AccountPopover';
+import { BoardsPopover } from '../board/Boards/BoardsPopover';
+import { MenuPopover } from '../board/Menu/MenuPopover';
+import { AccountPopover } from '../board/Account/AccountPopover';
 
 const Header: FC = () => {
 
@@ -13,8 +13,7 @@ const Header: FC = () => {
   const [accountPopover, setAccountPopover] = useState(false);
 
   return (
-    <div style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
-      className="absolute top-0 w-full py-2 px-10 flex justify-between items-center">
+    <div className="bg-blue-500 absolute top-0 w-full py-2 px-10 flex justify-between items-center">
       <div className='flex items-center'>
 
         <Link href={'/boards'}>
@@ -28,15 +27,6 @@ const Header: FC = () => {
             <span>Рабочие простарнства</span> <MdKeyboardArrowDown size={30} />
           </button>
           {boardsPopover ? <BoardsPopover setPopover={setBoardsPopover} /> : null}
-        </div>
-
-        <div>
-          <button
-            onClick={() => setMenuPopover(true)}
-            className={` ${menuPopover ? 'board_header-button' : ''} board_header-button-hover rounded-md flex items-center cursor-pointer ease-out duration-200 text-blue-50 font-bold text-xl px-3 py-2`}>
-            <span>Меню</span> <MdKeyboardArrowDown size={30} />
-          </button>
-          {menuPopover ? <MenuPopover setPopover={setMenuPopover} /> : null}
         </div>
 
       </div>

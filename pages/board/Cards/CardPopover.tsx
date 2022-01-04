@@ -11,7 +11,7 @@ const CardPopover: FC<IProps> = ({ removeCard, setPopover }) => {
       <div className='relative z-20 cursor-default'>
         <div
           style={{ top: "-15-px", left: "-30px", width: "200px", boxShadow: "0 8px 16px -4px #091e4240, 0 0 0 1px #091e4214" }}
-          className='p-3 flex-col absolute rounded-md bg-gray-200 flex justify-center items-center'>
+          className='popover-animation p-3 flex-col absolute rounded-md bg-gray-200 flex justify-center items-center'>
 
           <div>
             <span>Действия с карточкой</span>

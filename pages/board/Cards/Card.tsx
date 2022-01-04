@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { ICard } from '../../../models/board.models'
 import { useAppDispatch } from "../../../store/hooks";
-import { BoardSlice } from "../Slices/BoardSlice";
+import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { CardPopover } from "./CardPopover";
 
 interface IPorps {

@@ -1,5 +1,5 @@
 import { configureStore, combineReducers} from '@reduxjs/toolkit'
-import BoardReducer from '../pages/board/Slices/BoardSlice'
+import BoardReducer from './Slices/Board/BoardSlice'
 
 const rootReducer = combineReducers({
   BoardReducer

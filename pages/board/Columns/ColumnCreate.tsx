@@ -1,6 +1,6 @@
 import { FC, useRef, useState } from "react";
 import { useAppDispatch } from "../../../store/hooks";
-import { BoardSlice } from "../Slices/BoardSlice";
+import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { MdClose } from 'react-icons/md';
 
 const ColumnCreate: FC = () => {

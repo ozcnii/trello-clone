@@ -48,7 +48,7 @@ a {
 .AGB_2 {
   background: linear-gradient(-45deg, #8360c3, #2e9dbf, #8360c3, #2e9dbf);
   animation: animateGradient 15s ease infinite;
-  background-size: 100% 100%;
+  background-size: 200% 200%;
 
 }
 
@@ -69,4 +69,39 @@ a {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.board_header-button {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.board_header-button-hover:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.popover-animation {
+  animation: popoverAnimation .1s ease-in ;
+}
+
+@keyframes popoverAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal_position-center {
+  top: 30%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.modal_show_animation {
+  animation: modal_show_animation .2s ease-out;
+}
+
+@keyframes modal_show_animation {
+  
 }
