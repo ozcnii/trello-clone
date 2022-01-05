@@ -17,11 +17,9 @@ const Desk: NextPage = () => {
   const { setBackground } = BoardSlice.actions;
   const currentBoard = boards.find(board => board.id == currentBoardId);
   const background = currentBoard?.background;
+  const { id } = router.query;
 
   useEffect(() => {
-    const { id } = router.query;
-    console.log(id);
-    
     if (typeof id === 'string') {
       dispatch(setCurrentBoardId(id));
 
@@ -30,15 +28,7 @@ const Desk: NextPage = () => {
         dispatch(setBackground(bgObject));
       }
     }
-  }, [dispatch, currentBoardId, setBackground, router.query, setCurrentBoardId])
-
-  if (!currentBoard) {
-    return (
-      <>
-        board with id {currentBoardId} is not defined
-      </>
-    )
-  }
+  }, [dispatch, currentBoardId, setBackground, setCurrentBoardId, id])
 
   let className = "h-screen pt-20";
 
@@ -49,16 +39,25 @@ const Desk: NextPage = () => {
   }
 
   return (
-    <>
-      <Head>
-        <title>Trello | Board </title>
-      </Head>
+    currentBoard && typeof id === "string"
+      ? (<>
+        <Head>
+          <title>Trello | Board </title>
+        </Head>
 
-      <div className={className}>
-        <Header />
-        <Columns />
-      </div>
-    </>
+        <div className={className}>
+          <Header />
+          <Columns />
+        </div>
+      </>)
+      : !currentBoard && typeof id === "string" ? (
+        <div className='flex justify-center'>
+          board with id
+          <span className='mx-1 text-blue-700'> {id} </span>
+          not defined
+        </div>
+      ) 
+      : null
   )
 }
 
