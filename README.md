@@ -4,7 +4,7 @@
 TypeScript, Next.js, Redux Toolkit, Tailwind CSS, React Beautiful Dnd, React-Icons;
 
 # demo : 
-https://trello-clone-seven.vercel.app/boards
+https://trello-clone-seven.vercel.app/
 
 Run the development server:
 
