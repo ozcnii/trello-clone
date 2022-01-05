@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { FC, SyntheticEvent, useRef } from "react";
 import { useAppDispatch } from "../../../store/hooks";
 import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { MdClose } from 'react-icons/md';
@@ -14,12 +14,14 @@ const CardCreate: FC<IProps> = ({ isEdit, setIsEdit, columnId}) => {
   const dispatch = useAppDispatch()
   const { createCard } = BoardSlice.actions;
   
-  const cardCreate = (event: any) => {
+  const cardCreate = (event: SyntheticEvent<EventTarget>) => {
     event.preventDefault();
     const value = inputRef.current?.value;
     if (value?.trim().length) {
       dispatch(createCard({value: value.trim(), columnId: columnId}))
-      inputRef.current.value = "";
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     }
   }
   

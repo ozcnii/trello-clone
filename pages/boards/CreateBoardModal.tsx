@@ -1,12 +1,30 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import { MdClose } from 'react-icons/md'
 import { Button } from '../../components/Button'
+import { useAppDispatch } from '../../store/hooks'
+import { BoardSlice } from '../../store/Slices/Board/BoardSlice'
 
 interface IProps {
   setModal: (arg: boolean) => void,
 }
 
 const CreateBoardModal: FC<IProps> = ({ setModal }) => {
+  const { createBoard } = BoardSlice.actions;
+  const dispatch = useAppDispatch();
+  const inputRef = useRef<HTMLInputElement>(null);
+  
+  const create = () => {
+    const value = inputRef.current?.value;
+
+    if (value?.trim().length) {
+      dispatch(createBoard(value.trim()))
+      setModal(false)
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
+    }
+  }
+
   return (
     <>
       <div onClick={(e) => e.stopPropagation()}
@@ -22,10 +40,10 @@ const CreateBoardModal: FC<IProps> = ({ setModal }) => {
           </div>
 
           <div className='flex'>
-            <input type="text"
+            <input ref={inputRef} type="text"
               placeholder='Введите заголовок доски'
-              className='w-full border-2 border-gray-700 px-3 py-2 rounded-md mr-3' />
-            <div>
+              className='focus:border-gray-700 focus:outline-none w-full border-2 border-gray-400 px-3 py-2 rounded-md mr-3' />
+            <div onClick={create}>
               <Button>Создать</Button>
             </div>
           </div>

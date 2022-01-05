@@ -43,7 +43,7 @@ const Desk: NextPage = () => {
   let className = "h-screen pt-20";
 
   if (background?.type === "img") {
-    className += " " + "[url('/img/${background.background}')]";
+    className += " [url('/img/${background.background}')]";
   } else {
     className += className += " " + background?.background;
   }

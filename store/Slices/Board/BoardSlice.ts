@@ -94,7 +94,7 @@ export const BoardSlice = createSlice({
     createColumn(state, action: PayloadAction<string>) {
       const id = Date.now().toString();
       const currentBoard = findCurrentBoard(state.boards, state.currentBoardId);
-      
+
       currentBoard?.columns.push({
         id: id,
         name: action.payload,
@@ -143,6 +143,22 @@ export const BoardSlice = createSlice({
         if (column.id == action.payload) {
           currentBoard?.columns.splice(index, 1);
         }
+      });
+    },
+    createBoard(state, action: PayloadAction<string>) {
+      const id = Date.now().toString();
+      const name = action.payload;
+
+      state.boards.push({
+        id: id,
+        name: name,
+
+        background: {
+          type: "color",
+          background: "bg-gray-200"
+        },
+
+        columns: []
       });
     }
   }

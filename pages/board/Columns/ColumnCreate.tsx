@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, SyntheticEvent, useRef, useState } from "react";
 import { useAppDispatch } from "../../../store/hooks";
 import { BoardSlice } from "../../../store/Slices/Board/BoardSlice";
 import { MdClose } from 'react-icons/md';
@@ -10,12 +10,16 @@ const ColumnCreate: FC = () => {
   const dispatch = useAppDispatch()
   const { createColumn } = BoardSlice.actions;
 
-  const cardCreate = (event: any) => {
+  const cardCreate = (event: SyntheticEvent<EventTarget>) => {
     event.preventDefault();
     const value = inputRef.current?.value;
+
     if (value?.trim().length) {
       dispatch(createColumn(value.trim()))
-      inputRef.current.value = "";
+      
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
     }
   }
 
