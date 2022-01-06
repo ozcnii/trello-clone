@@ -14,9 +14,9 @@ const Header: FC = () => {
 
   return (
     <div style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
-      className="absolute top-0 w-full py-2 px-10 flex justify-between items-center">
+      className="min_width-800 absolute top-0 w-full py-2 px-10 flex justify-between items-center">
+      
       <div className='flex items-center'>
-
         <Link href={'/boards'}>
           <a className='board_header-button-hover mr-2 text-2xl rounded-md flex items-center cursor-pointer ease-out duration-200 text-blue-50 font-bold px-3 py-2'>Trello</a>
         </Link>

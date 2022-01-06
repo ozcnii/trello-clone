@@ -5,14 +5,11 @@ import { BoardsPopover } from '../Board/Boards/BoardsPopover';
 import { AccountPopover } from '../Board/Account/AccountPopover';
 
 const Header: FC = () => {
-
-  const [menuPopover, setMenuPopover] = useState(false);
   const [boardsPopover, setBoardsPopover] = useState(false);
-
   const [accountPopover, setAccountPopover] = useState(false);
 
   return (
-    <div className="bg-blue-500 absolute top-0 w-full py-2 px-10 flex justify-between items-center">
+    <div className="min_width-800 bg-blue-500 absolute top-0 w-full py-2 px-10 flex justify-between items-center">
       <div className='flex items-center'>
 
         <Link href={'/boards'}>

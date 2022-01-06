@@ -30,7 +30,7 @@ const Desk: NextPage = () => {
     }
   }, [dispatch, currentBoardId, setBackground, setCurrentBoardId, id])
 
-  let className = "h-screen pt-20";
+  let className = "min_width-800 h-screen pt-20";
 
   if (background?.type === "img") {
     className += " [url('/img/${background.background}')]";

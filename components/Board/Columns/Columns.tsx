@@ -26,7 +26,6 @@ const Columns: FC = () => {
       droppableIndexStart: source.index,
       droppableIndexEnd: destination.index
     }));
-    
   }
 
   return (

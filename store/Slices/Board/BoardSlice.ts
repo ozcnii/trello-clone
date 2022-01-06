@@ -160,6 +160,13 @@ export const BoardSlice = createSlice({
 
         columns: []
       });
+    }, 
+    removeBoard(state, action: PayloadAction<string>) {
+      state.boards.forEach((board, index) => {
+        if (board.id === action.payload) {
+          state.boards.splice(index, 1);
+        }
+      })
     }
   }
 })
