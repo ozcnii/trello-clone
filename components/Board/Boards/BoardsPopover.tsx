@@ -29,7 +29,8 @@ const BoardsPopover: FC<IProps> = ({ setPopover }) => {
             </LittleButton>
           </div>
 
-          <div style={{ width: "250px" }}>
+          <div style={{ width: "250px", maxHeight: "400px" }}
+            className="overflow-x-hidden pr-1" >
             {boards.map(board => {
               return (
                 <div key={board.id} onClick={() => setCurrentBoardId(board.id)} className={board.id === currentBoardId ? "font-bold" : ""} >

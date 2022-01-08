@@ -93,13 +93,17 @@ a {
 }
 
 .modal_position-center {
-  top: 30%;
-  right: 50%;
-  transform: translateX(50%);
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .modal_show_animation {
-  animation: modal_show_animation .2s ease-out;
+  margin-top: 15%;
+  animation: modal_show_animation .3s ease-out;
 }
 
 .board_remove-button:hover {
@@ -107,7 +111,27 @@ a {
 }
 
 @keyframes modal_show_animation {
-  
+  0% {
+    margin-top: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 15%;
+  }
+}
+
+.modal_background-show {
+  animation: modal_show_backgorund .3s ease-out;
+}
+
+@keyframes modal_show_backgorund {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.50);
+  }
 }
 
 .min_width-800 {

@@ -1,4 +1,4 @@
-import { ICardRemove } from '../../../models/board.models';
+import { ICardRemove, ICreateBoard } from '../../../models/board.models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IBoardState, IBackground, ICreateCard, ISortCards } from '../../../models/board.models';
 import { findCurrentBoard } from './utils';
@@ -7,6 +7,7 @@ const initialState: IBoardState = {
   boards: [
     {
       id: '123',
+      authorId: "user-id",
       name: 'first_board',
       background: {
         type: "color",
@@ -28,6 +29,7 @@ const initialState: IBoardState = {
     },
     {
       id: '12',
+      authorId: "user-id",
       name: 'second_board',
       background: {
         type: "color",
@@ -145,19 +147,17 @@ export const BoardSlice = createSlice({
         }
       });
     },
-    createBoard(state, action: PayloadAction<string>) {
+    createBoard(state, action: PayloadAction<ICreateBoard>) {
       const id = Date.now().toString();
-      const name = action.payload;
+      const name = action.payload.name;
+      const authorId = action.payload.authorId;
 
       state.boards.push({
-        id: id,
-        name: name,
-
+        id, name, authorId,
         background: {
           type: "color",
           background: "bg-gray-200"
         },
-
         columns: []
       });
     }, 
@@ -171,7 +171,5 @@ export const BoardSlice = createSlice({
   }
 })
 
-
-
-
-export default BoardSlice.reducer;
+const BoardReducer = BoardSlice.reducer;
+export { BoardReducer }

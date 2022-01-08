@@ -3,10 +3,13 @@ import Link from 'next/link';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { BoardsPopover } from '../Board/Boards/BoardsPopover';
 import { AccountPopover } from '../Board/Account/AccountPopover';
+import { useAppSelector } from '../../store/hooks';
 
 const Header: FC = () => {
   const [boardsPopover, setBoardsPopover] = useState(false);
   const [accountPopover, setAccountPopover] = useState(false);
+  const userName = useAppSelector(state => state.UserReducer.user?.name);
+  const firstLetterOfName = userName ? userName[0].toUpperCase(): null 
 
   return (
     <div className="min_width-800 bg-blue-500 absolute top-0 w-full py-2 px-10 flex justify-between items-center">
@@ -30,8 +33,10 @@ const Header: FC = () => {
       <div>
         <div onClick={() => setAccountPopover(true)}
           className='flex items-center cursor-pointer text-gray-50'>
-          <span className='mr-4 text-lg'>user name</span>
-          <div style={{ height: "50px", width: "50px" }} className='rounded-full bg-green-600 flex items-center justify-center font-bold'>Е</div>
+          <span className='mr-4 text-lg'>{ userName }</span>
+          <div style={{ height: "50px", width: "50px" }} className='rounded-full bg-green-600 flex items-center justify-center font-bold'>
+            { firstLetterOfName }
+          </div>
         </div>
         {accountPopover ? <AccountPopover setPopover={setAccountPopover} /> : null}
       </div>

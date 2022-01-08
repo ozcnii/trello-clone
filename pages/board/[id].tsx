@@ -1,5 +1,5 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
+import type { NextPage } from 'next';
 import { useEffect, useMemo } from 'react';
 import { IBackground } from '../../models/board.models';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -11,13 +11,23 @@ import { Columns } from '../../components/Board/Columns/Columns';
 const Desk: NextPage = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const currentBoardId = useAppSelector(state => state.BoardReducer.currentBoardId);
-  const boards = useAppSelector(state => state.BoardReducer.boards);
+  
+  const { currentBoardId } = useAppSelector(state => state.BoardReducer);
+  const { boards } = useAppSelector(state => state.BoardReducer);
+  const { user } = useAppSelector(state => state.UserReducer);
+
   const { setCurrentBoardId } = BoardSlice.actions;
   const { setBackground } = BoardSlice.actions;
+  const { id } = router.query;
+
   const currentBoard = boards.find(board => board.id == currentBoardId);
   const background = currentBoard?.background;
-  const { id } = router.query;
+
+  useEffect(() => {
+    if (!user) {
+      router.push('../auth/login')
+    }
+  }, [user, router])
 
   useEffect(() => {
     if (typeof id === 'string') {

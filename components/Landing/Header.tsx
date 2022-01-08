@@ -10,11 +10,17 @@ const Header: FC = () => {
       </Link>
 
       <div>
-        <button className='ease-out duratioyan-200 text-blue-500 text-xl mr-5 hover:text-blue-600 hover:underline' >
-          Войти
-        </button>
+        <Link href="auth/login">
+          <a className='ease-out duratioyan-200 text-blue-500 text-xl mr-5 hover:text-blue-600 hover:underline' >
+              Войти
+          </a>
+        </Link>
 
-        <Button> Регистрация </Button>
+        <Link href="auth/register">
+          <a>
+            <Button> Регистрация </Button>
+          </a>
+        </Link>
       </div>
 
     </div >

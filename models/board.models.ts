@@ -20,6 +20,7 @@ export interface IBoardState {
 }
 
 export interface IBoard {
+  authorId: string
   id: string,
   background: IBackground,
   columns: IColumn[],
@@ -41,4 +42,9 @@ export interface ISortCards {
 export interface ICardRemove {
   columnId: string,
   cardId: string
+}
+
+export interface ICreateBoard {
+  name: string,
+  authorId: string
 }

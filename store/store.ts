@@ -1,13 +1,14 @@
 import { configureStore, combineReducers} from '@reduxjs/toolkit'
-import BoardReducer from './Slices/Board/BoardSlice'
+import { BoardReducer } from './Slices/Board/BoardSlice'
+import { UserReducer } from './Slices/User/UserSlice'
 
 const rootReducer = combineReducers({
-  BoardReducer
+  BoardReducer, UserReducer,
 })
 
 export const setupStore = () => {
   return configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
   })
 }
 
