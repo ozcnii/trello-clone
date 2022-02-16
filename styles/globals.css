@@ -49,26 +49,30 @@ a {
   background: linear-gradient(-45deg, #8360c3, #2e9dbf, #8360c3, #2e9dbf);
   animation: animateGradient 15s ease infinite;
   background-size: 200% 200%;
-
 }
 
 .AGB_3 {
-  background: linear-gradient(-45deg, rgb(242, 112, 156), rgb(255, 110, 66), rgb(242, 112, 156), rgb(255, 110, 66));
+  background: linear-gradient(
+    -45deg,
+    rgb(242, 112, 156),
+    rgb(255, 110, 66),
+    rgb(242, 112, 156),
+    rgb(255, 110, 66)
+  );
   animation: animateGradient 15s ease infinite;
   background-size: 200% 200%;
-  
 }
 
 @keyframes animateGradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .board_header-button {
@@ -80,7 +84,7 @@ a {
 }
 
 .popover-animation {
-  animation: popoverAnimation .1s ease-in ;
+  animation: popoverAnimation 0.1s ease-in;
 }
 
 @keyframes popoverAnimation {
@@ -103,16 +107,16 @@ a {
 
 .modal_show_animation {
   margin-top: 15%;
-  animation: modal_show_animation .3s ease-out;
+  animation: modal_show_animation 0.2s ease-out;
 }
 
 .board_remove-button:hover {
-  background: rgba(0, 0, 0, 0.30);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 @keyframes modal_show_animation {
   0% {
-    margin-top: 0;
+    margin-top: 5%;
     opacity: 0;
   }
   100% {
@@ -122,7 +126,7 @@ a {
 }
 
 .modal_background-show {
-  animation: modal_show_backgorund .3s ease-out;
+  animation: modal_show_backgorund 0.3s ease-out;
 }
 
 @keyframes modal_show_backgorund {
@@ -130,10 +134,14 @@ a {
     background: rgba(0, 0, 0, 0);
   }
   100% {
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
 .min_width-800 {
   min-width: 800px;
+}
+
+.min-h-5 {
+  min-height: 5px;
 }
